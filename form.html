@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформить заказ</title>
+    <style>
+        .nav-active {
+            background-color: #dcb6ff;
+            font-weight: bold;
+            color: #000;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px;
+            display: block;
+        }
+        ul li a:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ароматические свечи</h1>
+    <ul>
+        <li><a href="https://arschi.ru/articles/chem-polezny-aromaticheskie-svechi/" target="_blank">Чем полезны ароматические свечи?</a></li>
+        <li><a href="wish.html" target="_blank"><img src="images/candle.png" height="30px"></a></li>
+        <li><a href="index.html#catalog" target="_self">Каталог</a></li>
+        <li><a href="form.html" class="nav-active">Оформить заказ</a></li>
+        <li><a href="sostav.html" >Состав свечей</a></li>
+        <li><a href="time.html">Время горения свечей</a></li>
+        <li><a href="index.html#choice" target="_self">Как выбрать свечу?</a></li>
+        <li><a href="index.html#main" target="_self">Вернуться в начало</a></li>
+    </ul>
+
+    <br><br>
+
+    <h2 align="center">Оформить заказ</h2>
+    
+    <form action="https://www.bing.com/search" method="get" target="_blank"
+      onsubmit="
+        document.getElementById('search_query').value =
+        'Фамилия и имя: ' + document.getElementsByName('name')[0].value +
+        ', Группа: ' + document.getElementsByName('group')[0].value +
+        ', Мобильный телефон: ' + document.getElementsByName('phone')[0].value +
+        ', Электронная почта: ' + document.getElementsByName('email')[0].value +
+        ', Выберите товар: ' + document.querySelector('input[name=candle]:checked').value + 
+        ', Количество товара: ' + document.getElementsByName('num')[0].value +
+        ', Размер свечи: ' + document.getElementsByName('size')[0].value +
+        ', Дополнительные услуги: ' + Array.from(document.querySelectorAll('input[name=dop]:checked')).map(cb => cb.nextSibling.textContent.trim()).join(', ') +
+        ', Адрес доставки: ' + document.getElementsByName('textarea')[0].value +
+        ', Дата доставки: ' + document.getElementsByName('dost_date')[0].value +
+        ', Промокод: ' + document.getElementsByName('promocode')[0].value +
+        ', Id пользователя: ' + document.getElementsByName('userId')[0].value;
+        return true;
+      ">
+
+    <input type="hidden" name="q" id="search_query">
+        <table border="1" cellpadding="10" cellspacing="0" width="700" background="background_table.png"
+            style="background-size: cover; margin: 0 auto;">
+            <tr>
+                <td>Фамилия и имя:</td>
+                <td><input type="text" name="name" size="30" value="Пупкин Вася"></td>
+            </tr>
+
+            <tr>
+                <td>Группа:</td>
+                <td><input type="text" name="group" size="30" value="BSC243"></td>
+            </tr>
+          
+            <tr>
+                <td>Мобильный телефон:</td>
+                <td><input type="tel" name="phone" size="30" value="+7 777 777 7777"></td>
+            </tr>
+
+            <tr>
+                <td>Электронная почта:</td>
+                <td><input type="email" name="email" size="30" value="VasyaPupkinBro@mail.ru"></td>
+            </tr>
+           
+            <tr>
+                <td>Выберите товар:</td>
+                <td>
+                    <input type="radio" name="candle" value="Vanilla">Тёплая ваниль
+                    <input type="radio" name="candle" value="Forest" checked>Хвойный лес
+                    <input type="radio" name="candle" value="Lavender">Шёпот лаванды
+                </td>
+            </tr>
+             <tr>
+                <td>Количество товара:</td>
+                <td><input type="number" name="num" size="30" value="2"></td>
+            </tr>
+
+            <tr>
+                <td>Размер свечи:</td>
+                <td>
+                    <select name="size">
+                        <option value="small">малая</option>
+                        <option value="standard">стандратная</option>
+                        <option value="big">большая</option>
+                        <option value="premium">премиум</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Дополнительные услуги:</td>
+                <td>
+                    <input type="checkbox" name="dop" value="10" checked>Подарочная упаковка (+300р.)<br>
+                    <input type="checkbox" name="dop" value="20">Доставка в другой город (цена варьируется)<br>
+                    <input type="checkbox" name="dop" value="30">Срочная доставка (+500 р.)<br>
+                </td>
+            </tr>
+            <tr>
+                <td>Адрес доставки:</td>
+                <td>
+                    <textarea cols="50" rows="4" name="textarea">г. Спб, ул. Василия Пупкина, д. 77, кв. 1</textarea>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Дата доставки:</td>
+                <td><input type="date" name="dost_date" value="2025-12-31"></td>
+            </tr>
+
+            <tr>
+                <td>Промокод</td>
+                <td><input type="password" name="promocode" value="NikaLove"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="reset" name="Reset" value="Обновить">
+                    <input type="submit" name="submit" value="Отправить">
+                </td>
+            </tr>
+
+            <input type="hidden" name="userId" value="12345">
+            
+        </table>
+        
+
+
+    </form>
+
+</body>
+
+</html>
